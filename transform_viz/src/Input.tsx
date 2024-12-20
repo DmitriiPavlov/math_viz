@@ -89,7 +89,7 @@ function Input({callback}:InputProps){
         <button onClick={()=>{clicked()}}>Transform</button>
         <button onClick={()=>{callback(processExpression("x"),processExpression("y"))}}>Reset</button>
         <button onClick={()=>{setSpeed((speed)%10+1); settings.SPEED = (speed)%10+1;}}>{`Speed: ${speed}`}</button>
-        <button onClick={()=>{setPerf((perf+1)%3); settings.PERFORMANCE = (perf+1)%3;}}>{`Perfomance:${perfstring}`}</button>
+        <button onClick={()=>{setPerf((perf+1)%3); settings.PERFORMANCE = (perf+1)%3;}}>{`Performance:${perfstring}`}</button>
         </div>
         <p className={styles.errormsg}>{errormsg}</p>
         </div>
