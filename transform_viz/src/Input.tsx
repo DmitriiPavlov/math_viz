@@ -75,7 +75,7 @@ function Input({callback}:InputProps){
         <button onClick={()=>{clicked()}}>Transform</button>
         <button onClick={()=>{callback(processExpression("x"),processExpression("y"))}}>Reset</button>
         </div>
-        <p id="errormsg">{errormsg}</p>
+        <p className={"errormsg"}>{errormsg}</p>
         </div>
 
         </>

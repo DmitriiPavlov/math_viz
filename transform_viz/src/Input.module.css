@@ -5,7 +5,8 @@
     gap: 15px;
     align-items: center;
     background-color: transparent;
-    padding: 1em;
+    padding-left:1em;
+    padding-top:1em;
     font-family: monospace;
     font-size: 15px;
     flex-wrap: wrap; /* Keeps wrapping */
@@ -51,10 +52,10 @@ svg{
     width:2em;
 }
 
-#errormsg{
+.errormsg{
     color:red;
-    background-color: blue;
 }
+
 p{
     max-height: 2em;
 }

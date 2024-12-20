@@ -157,7 +157,8 @@ function preprocess(expression:string):string{
         let noSpaces = expression.replace(/\s+/g, '');
     
         // Insert a * between numbers and letters
-        let result = noSpaces.replace(/(\d)([a-zA-Z])|([a-zA-Z])(\d)/g, (num1, letter1, letter2, num2) => {
+        //@ts-ignore
+        let result = noSpaces.replace(/(\d)([a-zA-Z])|([a-zA-Z])(\d)/g, (match,num1, letter1, letter2, num2) => {
             return num1 ? `${num1}*${letter1}` : `${letter2}*${num2}`;
         });
 
@@ -367,7 +368,7 @@ function processExpression(raw_string : string):Expression{
     return parseExpression(preprocess(raw_string)).cull();
 }
 
-
+let expr = processExpression("2x+5y");
 
 export {
     Expression,
