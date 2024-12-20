@@ -5,6 +5,7 @@ import styles from "./App.module.css"
 import {transformLine,Line,generateLineGrid} from "./canvashelper.tsx"
 import { initializeContext } from './viewport.tsx';
 import {animateMorph} from  "./animate.tsx";
+import { settings } from './settings.ts';
 function App() {
   const [xTransform, setX] = useState(processExpression("x"));
   const [yTransform, setY] = useState(processExpression("y"));
@@ -16,9 +17,18 @@ function App() {
     var c= document.getElementById("mycanvas") as HTMLCanvasElement;
     var ctx = initializeContext(-10,-10,10,10,c);
     let x_expr = xTransform;
-    let y_expr = yTransform;
+    let y_expr = yTransform; 
+    if (window.innerWidth<768){
+      settings.MOBILE =true;
+    }
+    
     var line1:Line[]; 
-    line1 = generateLineGrid(100);
+    if (settings.MOBILE){
+      line1 = generateLineGrid(20);
+    }
+    else{
+      line1 = generateLineGrid(100);
+    }
     if (ctx == null) return;
 
     let line2 = line1.map((line)=>transformLine(line,x_expr,y_expr));

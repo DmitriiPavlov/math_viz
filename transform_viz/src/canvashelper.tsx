@@ -1,6 +1,5 @@
 //essentially all the objects we are going to render are going to be in form of arrays of points
 import {Expression} from "./calculator"
-
 type Line = [number[],number[]];
 function generatePointsLine(x0:number, y0:number, x1:number, y1:number, pointsCount:number): Line{
     let xvalues:number[] = [];
@@ -74,7 +73,7 @@ function generateLineGrid(precision:number):Line[]{
 function clearGrid(ctx:CanvasRenderingContext2D,c:HTMLCanvasElement){
     ctx.save();
     ctx.fillStyle = "black";
-    ctx.setTransform(1,0,0,1,0,0);
+    ctx.setTransform(1,0,0,1,0,0)
     ctx.fillRect(0,0,c.width,c.height);
     ctx.restore();
 }
