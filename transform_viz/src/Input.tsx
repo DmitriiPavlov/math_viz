@@ -71,8 +71,10 @@ function Input({callback}:InputProps){
             <p>,</p>
             <input type="text" placeholder={"y"} onChange = {(e)=>{setY(e.target.value)}}></input>
         </div>
+        <div className={"buttons"}>
         <button onClick={()=>{clicked()}}>Transform</button>
         <button onClick={()=>{callback(processExpression("x"),processExpression("y"))}}>Reset</button>
+        </div>
         <p id="errormsg">{errormsg}</p>
         </div>
 
