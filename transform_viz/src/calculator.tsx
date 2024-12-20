@@ -368,8 +368,6 @@ function processExpression(raw_string : string):Expression{
     return parseExpression(preprocess(raw_string)).cull();
 }
 
-let expr = processExpression("2x+5y");
-
 export {
     Expression,
     processExpression
