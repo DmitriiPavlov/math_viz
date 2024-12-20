@@ -18,11 +18,10 @@ function App() {
     let x_expr = xTransform;
     let y_expr = yTransform;
     var line1:Line[]; 
-    var line2:Line[];
-    line1 = generateLineGrid();
-    line2 = line1.map((line)=>transformLine(line,x_expr,y_expr));
+    line1 = generateLineGrid(100);
     if (ctx == null) return;
 
+    let line2 = line1.map((line)=>transformLine(line,x_expr,y_expr));
     animateMorph(line1,line2,ctx,c);
 
 

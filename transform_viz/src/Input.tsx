@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import styles from "./Input.module.css"
 import {Expression,processExpression} from "./calculator.tsx"
+import {settings} from './settings.ts';
 
 
 type InputProps = {
@@ -12,7 +13,7 @@ function Input({callback}:InputProps){
     const [xStr,setX] = useState("");
     const [yStr,setY] = useState("");
     const [errormsg,setError] = useState("");
-
+    const [speed,setSpeed] = useState(settings.SPEED);
     function clicked(){
         let errorred = false;
         var xexpr:Expression = new Expression();;
@@ -45,11 +46,11 @@ function Input({callback}:InputProps){
         }
 
 
-        if (Number.isNaN(xexpr.eval({"x":12.315124,"y":-0.141255241}))){
+        if (!xexpr.validateVariables(["x","y"])){
             errorred = true;
             setError("Invalid expression for x.");
         }
-        if (Number.isNaN(yexpr.eval({"x":212412.123231,"y":129314152.12414}))){
+        if (!yexpr.validateVariables(["x","y"])){
             errorred = true;
             setError("Invalid expression for y.");
         }
@@ -74,10 +75,10 @@ function Input({callback}:InputProps){
         <div className={"buttons"}>
         <button onClick={()=>{clicked()}}>Transform</button>
         <button onClick={()=>{callback(processExpression("x"),processExpression("y"))}}>Reset</button>
+        <button onClick={()=>{setSpeed((speed)%10+1); settings.SPEED = (speed)%10+1;}}>{`Speed: ${speed}`}</button>
         </div>
-        <p className={"errormsg"}>{errormsg}</p>
+        <p className={styles.errormsg}>{errormsg}</p>
         </div>
-
         </>
     )
 }

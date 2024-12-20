@@ -10,6 +10,11 @@ class Expression {
     cull() : Expression{
         return this;
     }
+
+    //@ts-ignore
+    validateVariables(allowed_vars:string[]):boolean{
+        return true;
+    }
 }
 
 class Variable extends Expression {
@@ -22,6 +27,16 @@ class Variable extends Expression {
 
     eval(var_dict: VarDict): number {
         return var_dict[this.name];
+    }
+
+    validateVariables(allowed_vars: string[]): boolean {
+        for (let i = 0; i < allowed_vars.length; i++){
+            if (allowed_vars[i] ==this.name){
+                return true;
+            }
+        }
+        console.log("here");
+        return false;
     }
 }
 
@@ -45,6 +60,9 @@ class UnaryExpression extends Expression {
             return new Constant(this.op(this.inside.eval({})));
         }
         return this;
+    }
+    validateVariables(allowed_vars: string[]): boolean {
+        return this.inside.validateVariables(allowed_vars);
     }
 }
 
@@ -72,6 +90,9 @@ class BinaryExpression extends Expression {
         }
         return this;
     }
+    validateVariables(allowed_vars: string[]): boolean {
+        return this.left.validateVariables(allowed_vars) && this.right.validateVariables(allowed_vars);
+    }
 }
 
 class Constant extends Expression {
@@ -85,6 +106,7 @@ class Constant extends Expression {
     eval(var_dict: VarDict): number {
         return this.value;
     }
+    
 
 }
 
@@ -367,6 +389,9 @@ function parseExpression(raw_expression: string) : Expression{
 function processExpression(raw_string : string):Expression{
     return parseExpression(preprocess(raw_string)).cull();
 }
+
+let expr = processExpression("x");
+console.log(expr.validateVariables(["x","y"]))
 
 export {
     Expression,

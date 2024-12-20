@@ -62,11 +62,11 @@ function drawTransition(line1:Line, line2:Line, t:number,ctx:CanvasRenderingCont
     ctx.stroke();
 }
 
-function generateLineGrid():Line[]{
+function generateLineGrid(precision:number):Line[]{
     let result = [];
-    for (let i = -50; i <= 50; i+=2){ 
-        result.push(generatePointsLine(i,-100,i,100,1000));
-        result.push(generatePointsLine(-100,i,100,i,1000));
+    for (let i = -precision; i <= precision; i+=2){ 
+        result.push(generatePointsLine(i,-precision,i,precision,10*precision));
+        result.push(generatePointsLine(-precision,i,precision,i,10*precision));
     }
     return result;
 }
