@@ -51,9 +51,7 @@ function transitionLine(line1:Line, line2:Line, t:number) : Line{
 function interpolate(a:number, b:number, t:number):number{
     return a + t*(b-a);
 }
-function bounded(n:number):boolean{
-    return -10<=n && n<=10;
-}
+
 
 function drawTransition(line1:Line, line2:Line, t:number,ctx:CanvasRenderingContext2D) : void{
     ctx.beginPath();

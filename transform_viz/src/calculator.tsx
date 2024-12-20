@@ -1,7 +1,9 @@
 type VarDict = { [key: string]: number };
 
 class Expression {
+    //@ts-ignore
     eval(var_dict: VarDict): number {
+
         return 0;
     }
     
@@ -79,7 +81,7 @@ class Constant extends Expression {
         super();
         this.value = value;
     }
-
+    //@ts-ignore
     eval(var_dict: VarDict): number {
         return this.value;
     }
@@ -155,7 +157,7 @@ function preprocess(expression:string):string{
         let noSpaces = expression.replace(/\s+/g, '');
     
         // Insert a * between numbers and letters
-        let result = noSpaces.replace(/(\d)([a-zA-Z])|([a-zA-Z])(\d)/g, (match, num1, letter1, letter2, num2) => {
+        let result = noSpaces.replace(/(\d)([a-zA-Z])|([a-zA-Z])(\d)/g, (num1, letter1, letter2, num2) => {
             return num1 ? `${num1}*${letter1}` : `${letter2}*${num2}`;
         });
 

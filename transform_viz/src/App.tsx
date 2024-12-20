@@ -2,7 +2,7 @@ import Input from './Input.tsx'
 import { Expression, processExpression } from './calculator.tsx'
 import { useState,useEffect} from 'react';
 import styles from "./App.module.css"
-import {generatePointsLine,drawLine,transformLine,transitionLine,Line,generateLineGrid} from "./canvashelper.tsx"
+import {transformLine,Line,generateLineGrid} from "./canvashelper.tsx"
 import { initializeContext } from './viewport.tsx';
 import {animateMorph} from  "./animate.tsx";
 function App() {

@@ -8,8 +8,8 @@ function initializeContext(x0: number, y0: number, x1: number, y1: number, c: HT
     if(ctx == null) return null;
 
     ctx.strokeStyle = "white";
-    let w = c.clientWidth;
-    let h = c.clientHeight;
+
+    
     ctx.scale(ratio,ratio);
     ctx.translate(0.5,0.5);
     ctx.lineWidth /=c.width / (x1 - x0);

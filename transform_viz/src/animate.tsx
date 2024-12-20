@@ -1,4 +1,4 @@
-import {transitionLine,drawLine,clearGrid,Line, drawTransition} from "./canvashelper.tsx"
+import {clearGrid,Line, drawTransition} from "./canvashelper.tsx"
 
 
 function animateMorph(start_lines:Line[], end_lines:Line[],ctx:CanvasRenderingContext2D,canvas:HTMLCanvasElement):void{
