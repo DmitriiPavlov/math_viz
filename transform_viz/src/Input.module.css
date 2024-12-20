@@ -1,22 +1,25 @@
-.container{
-    color:white;
-    display:flex;
+.container {
+    color: white;
+    display: flex;
     flex-direction: row;
-    gap:15px;
-    height:10px;
+    gap: 15px;
     align-items: center;
     background-color: transparent;
-    padding:20px;
+    padding: 1em;
     font-family: monospace;
-    font-size:15px;
+    font-size: 15px;
+    flex-wrap: wrap; /* Keeps wrapping */
+    min-height: 2em; /* Adjusted for content flexibility */
+    width:fit-content
 }
 
 .inputdiv{
     display:flex;
-    width:fit-content;
     height:1.5em;
     align-items: center;
     gap:5px;
+    flex-grow: 0;
+    max-width:40%;
 }
 
 input{
@@ -24,7 +27,7 @@ input{
     background-color: black;
     color:white;
     border-color:white;
-    width:max(5em,fit-content);
+    max-width: 40%;
     padding: 0.2em; /* Adjust to fit your design */
     margin: 0;
     font-size: 15px;
@@ -43,8 +46,14 @@ button:hover{
     color:black;
 }
 
+svg{
+    width:2em;
+}
 
 #errormsg{
     color:red;
     background-color: blue;
+}
+p{
+    max-height: 2em;
 }
