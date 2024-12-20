@@ -1,0 +1,50 @@
+.container{
+    color:white;
+    display:flex;
+    flex-direction: row;
+    gap:15px;
+    height:10px;
+    align-items: center;
+    background-color: transparent;
+    padding:20px;
+    font-family: monospace;
+    font-size:15px;
+}
+
+.inputdiv{
+    display:flex;
+    width:fit-content;
+    height:1.5em;
+    align-items: center;
+    gap:5px;
+}
+
+input{
+    font-family: monospace;
+    background-color: black;
+    color:white;
+    border-color:white;
+    width:max(5em,fit-content);
+    padding: 0.2em; /* Adjust to fit your design */
+    margin: 0;
+    font-size: 15px;
+    
+}
+button{
+    background-color: black;
+    color:white;
+    border-color:white;
+    border-radius:5px;
+    padding:0.5em;
+}
+
+button:hover{
+    background-color:white;
+    color:black;
+}
+
+
+#errormsg{
+    color:red;
+    background-color: blue;
+}
