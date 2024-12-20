@@ -18,17 +18,23 @@ function App() {
     var ctx = initializeContext(-10,-10,10,10,c);
     let x_expr = xTransform;
     let y_expr = yTransform; 
-    if (window.innerWidth<768){
-      settings.MOBILE =true;
-    }
     
     var line1:Line[]; 
-    if (settings.MOBILE){
-      line1 = generateLineGrid(20);
+    switch(settings.PERFORMANCE){
+      case 0:
+        line1 = generateLineGrid(100);
+        break;
+      case 1:
+        line1 = generateLineGrid(50);
+        break;
+      case 2:
+        line1 = generateLineGrid(10);
+        break;
+      default:
+        line1 = generateLineGrid(10);
     }
-    else{
-      line1 = generateLineGrid(100);
-    }
+    
+
     if (ctx == null) return;
 
     let line2 = line1.map((line)=>transformLine(line,x_expr,y_expr));

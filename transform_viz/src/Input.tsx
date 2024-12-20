@@ -14,6 +14,19 @@ function Input({callback}:InputProps){
     const [yStr,setY] = useState("");
     const [errormsg,setError] = useState("");
     const [speed,setSpeed] = useState(settings.SPEED);
+    const [perf, setPerf] = useState(2);
+    let perfstring = "LOW";
+    switch(perf){
+        case 0:
+            perfstring = "Low";
+            break;
+        case 1:
+            perfstring = "Medium";
+            break;
+        case 2:
+            perfstring = "High";
+            break;
+    }
     function clicked(){
         let errorred = false;
         var xexpr:Expression = new Expression();;
@@ -76,6 +89,7 @@ function Input({callback}:InputProps){
         <button onClick={()=>{clicked()}}>Transform</button>
         <button onClick={()=>{callback(processExpression("x"),processExpression("y"))}}>Reset</button>
         <button onClick={()=>{setSpeed((speed)%10+1); settings.SPEED = (speed)%10+1;}}>{`Speed: ${speed}`}</button>
+        <button onClick={()=>{setPerf((perf+1)%3); settings.PERFORMANCE = (perf+1)%3;}}>{`Perfomance:${perfstring}`}</button>
         </div>
         <p className={styles.errormsg}>{errormsg}</p>
         </div>
