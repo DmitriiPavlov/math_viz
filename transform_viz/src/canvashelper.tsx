@@ -64,8 +64,8 @@ function drawTransition(line1:Line, line2:Line, t:number,ctx:CanvasRenderingCont
 function generateLineGrid(precision:number):Line[]{
     let result = [];
     for (let i = -precision; i <= precision; i+=2){ 
-        result.push(generatePointsLine(i,-precision,i,precision,10*precision));
-        result.push(generatePointsLine(-precision,i,precision,i,10*precision));
+        result.push(generatePointsLine(i,-precision,i,precision,20*precision));
+        result.push(generatePointsLine(-precision,i,precision,i,20*precision));
     }
     return result;
 }
