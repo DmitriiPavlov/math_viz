@@ -6,9 +6,10 @@ import {settings} from './settings.ts';
 
 type InputProps = {
     callback: (x: Expression, y: Expression) => void;
+    callback2: () => void;
   };
 
-function Input({callback}:InputProps){
+function Input({callback,callback2}:InputProps){
       //for rn we are just making a simple calculator
     const [xStr,setX] = useState("");
     const [yStr,setY] = useState("");
@@ -90,6 +91,7 @@ function Input({callback}:InputProps){
         <button onClick={()=>{callback(processExpression("x"),processExpression("y"))}}>Reset</button>
         <button onClick={()=>{setSpeed((speed)%10+1); settings.SPEED = (speed)%10+1;}}>{`Speed: ${speed}`}</button>
         <button onClick={()=>{setPerf((perf+1)%3); settings.PERFORMANCE = (perf+1)%3;}}>{`Performance:${perfstring}`}</button>
+        <button onClick={callback2}>Download</button>
         </div>
         <p className={styles.errormsg}>{errormsg}</p>
         </div>

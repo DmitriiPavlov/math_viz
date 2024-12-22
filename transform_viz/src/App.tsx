@@ -10,9 +10,20 @@ function App() {
   const [xTransform, setX] = useState(processExpression("x"));
   const [yTransform, setY] = useState(processExpression("y"));
 
+  function downloadCanvasAsImage() {
+    var c= document.getElementById("mycanvas") as HTMLCanvasElement;
 
-
-
+    const imageData = c.toDataURL("image/png");
+  
+    const link = document.createElement("a");
+  
+    link.href = imageData;
+  
+    link.download = "myCanvasImage.png"; // Set desired filename
+  
+    link.click();
+  
+  }
   useEffect(()=>{
     var c= document.getElementById("mycanvas") as HTMLCanvasElement;
     var ctx = initializeContext(-10,-10,10,10,c);
@@ -48,7 +59,7 @@ function App() {
   <Input callback={(x:Expression,y:Expression)=>{
     setX(x);
     setY(y);
-  }}/>
+  }} callback2={downloadCanvasAsImage}/>
   </div>
   <canvas className = {`${styles.overlay} ${styles.canvas}`} id = {"mycanvas"} height = {"100%"} width = {"100%"}></canvas>
   </>
